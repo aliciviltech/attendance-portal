@@ -6,7 +6,7 @@ import { StatsType } from '@/types/accountsTypes'
 import { logout } from '@/utils/client'
 import { ChevronDown, User } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
@@ -26,9 +26,12 @@ const EmployeeDashboard = ({ params }: { params: { id: string } }) => {
 
 
   // fetch employee from local storage
-  const userInfoString = localStorage.getItem('user') || null;
-  const userInfo: UserInfo = userInfoString && JSON.parse(userInfoString);
-  console.log(userInfo)
+  const [userInfo,setUserInfo]=useState<UserInfo | null>(null)
+  useEffect(()=>{
+    const userInfoString = localStorage.getItem('user') || null;
+    const userInfoJson: UserInfo = userInfoString && JSON.parse(userInfoString);
+    setUserInfo(userInfoJson)
+  })
 
   // logout
   const handleLogout = ()=>{
