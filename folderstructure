@@ -1,0 +1,52 @@
+src/                     # keep everything inside src for clarity
+ ├── app/
+ │    ├── (auth)/        # route groups for authentication
+ │    │     ├── login/
+ │    │     │     └── page.tsx
+ │    │     ├── register/
+ │    │     │     └── page.tsx
+ │    │     ├── forgot-password/
+ │    │     │     └── page.tsx
+ │    │     └── reset-password/
+ │    │           └── page.tsx
+ │    │
+ │    ├── (dashboards)/  # route groups for dashboards
+ │    │     ├── admin/
+ │    │     │     └── page.tsx
+ │    │     ├── hr/
+ │    │     │     └── page.tsx
+ │    │     └── employee/
+ │    │           └── page.tsx
+ │    │
+ │    ├── api/           # App Router APIs
+ │    │     └── auth/
+ │    │           ├── register/route.ts
+ │    │           ├── login/route.ts
+ │    │           ├── forgot-password/route.ts
+ │    │           └── reset-password/route.ts
+ │    │
+ │    └── layout.tsx
+ │
+ ├── components/          # shared UI components (buttons, forms, etc.)
+ │    ├── ui/             # reusable, generic (e.g., Button, Input, Modal)
+ │    └── auth/           # auth-specific components (LoginForm, RegisterForm)
+ │
+ ├── lib/                 # helpers (auth logic, db config, email sender, jwt utils)
+ │    ├── auth.ts
+ │    ├── jwt.ts
+ │    ├── bcrypt.ts
+ │    └── mailer.ts
+ │
+ ├── utils/               # small helper functions not tied to domain
+ │    ├── formatDate.ts
+ │    └── logger.ts
+ │
+ ├── types/               # global TypeScript types & interfaces
+ │    ├── user.ts
+ │    └── index.ts
+ │
+ ├── styles/              # global styles
+ │    └── globals.css
+ │
+ └── config/              # environment-specific configs (optional)
+      └── site.ts
