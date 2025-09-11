@@ -90,7 +90,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo }) {
 
           {/* Daily Stats */}
           {dailyStat ? (
-            <div className="flex gap-6">
+            <div className="flex gap-6 flex-wrap justify-center">
               <StatBox label="Status" value={dailyStat.status} />
               <StatBox label="Hours Worked" value={dailyStat.hoursWorked} />
               <StatBox label="Tasks Completed" value={dailyStat.tasksCompleted} />
@@ -132,7 +132,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo }) {
           </div>
 
           {/* Monthly Stats */}
-          <div className="flex gap-6">
+          <div className="flex gap-6 flex-wrap justify-center">
             <StatBox label="Days Present" value={monthlyStats?.daysPresent || 0} />
             <StatBox label="Days Absent" value={monthlyStats?.daysAbsent || 0} />
             <StatBox label="Hours Worked" value={monthlyStats?.hoursWorked || 0 } />
