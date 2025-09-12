@@ -1,6 +1,7 @@
 'use client'
 import { CheckInButton } from '@/components/buttons/CheckinButton'
 import { CheckOutButton } from '@/components/buttons/CheckoutButton'
+import CheckButtons from '@/components/checkinCheckout/CheckButtons'
 import EmployeeStats from '@/components/employeeStats/EmployeeStats'
 import { StatsType } from '@/types/accountsTypes'
 import { logout } from '@/utils/client'
@@ -15,6 +16,9 @@ export type UserInfo = {
   name: string,
   email: string,
   role: 'admin' | 'hr' | 'employee',
+  managerName:string
+  hourlyRate?:number
+  overtimeRate?:number
   stats?: StatsType
 }
 
@@ -31,7 +35,7 @@ const EmployeeDashboard = ({ params }: { params: { id: string } }) => {
     const userInfoString = localStorage.getItem('user') || null;
     const userInfoJson: UserInfo = userInfoString && JSON.parse(userInfoString);
     setUserInfo(userInfoJson)
-  })
+  },[])
 
   // logout
   const handleLogout = ()=>{
@@ -42,7 +46,9 @@ const EmployeeDashboard = ({ params }: { params: { id: string } }) => {
 
   // authenticate
   useEffect(()=>{
-    if(!userInfo) router.push('/login')
+    const userInfoString = localStorage.getItem('user') || null;
+    const userInfoJson: UserInfo = userInfoString && JSON.parse(userInfoString);
+    if(!userInfoJson) router.push('/login')
   },[])
 
 
@@ -65,8 +71,7 @@ const EmployeeDashboard = ({ params }: { params: { id: string } }) => {
 
       {/* checkin checkout buttons */}
       <div className='flex gap-4 justify-center mb-10'>
-        <CheckInButton />
-        <CheckOutButton />
+        <CheckButtons userInfo={userInfo} />
       </div>
 
       {/* stats */}

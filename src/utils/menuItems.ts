@@ -1,4 +1,4 @@
-import { BookCheck,   Handshake, Info, LayoutDashboard,  Settings, TimerIcon, Users } from "lucide-react"
+import { BookCheck,   Handshake, Info, LayoutDashboard,  LogOut,  Settings, TimerIcon, Users } from "lucide-react"
 
 
 export const adminMenuItems = [
@@ -64,5 +64,11 @@ export const employeeMenuItems = [
     url: "/employee",
     icon: LayoutDashboard,
   },
+   {
+    title: "Time Sheet",
+    url: "/employee/timesheet",
+    icon: TimerIcon,
+  },
+
 
 ]

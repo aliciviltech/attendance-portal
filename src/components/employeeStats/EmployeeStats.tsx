@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StatBox from "../statBox/StatBox";
 import { UserInfo } from "@/app/(dashboards)/employee/page";
 
+
 export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null }) {
+
   const [mode, setMode] = useState<"daily" | "monthly">("daily");
   const [selectedDate, setSelectedDate] = useState(
     userInfo?.stats?.daily[0]?.date || ""
   );
+
+  useEffect(()=>{
+    setSelectedDate(userInfo?.stats?.daily[0]?.date || '')
+  },[userInfo])
 
   // month/year state for monthly view
   const currentYear = new Date().getFullYear();

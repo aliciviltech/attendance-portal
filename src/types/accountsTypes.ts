@@ -1,6 +1,11 @@
 export type DailyStat = {
-  status:string
   date: string   // e.g. "2025-09-08" (ISO format YYYY-MM-DD)
+  day:string
+  startTime:string
+  endTime:string
+  regularHours:number
+  overtimeHours:number
+  status:string
   hoursWorked: number
   tasksCompleted: number
   // add more fields like salaryEarned, progress, etc.
@@ -14,14 +19,19 @@ export type MonthlyStat = {
 }
 
 export type StatsType = {
-  daily: DailyStat[]
+  daily: DailyStat[],
+  checkinTime:number,
+  checkoutTime:number,
 }
 
 export type AccountsType = {
-  id: string,
-  name: string,
-  email: string,
-  password: string,
+  id: string
+  name: string
+  email: string
+  password: string
+  hourlyRate?:number
+  overtimeRate?:number
+  managerName?:string
   role: 'admin' | 'hr' | 'employee',
   stats?: StatsType
 }
