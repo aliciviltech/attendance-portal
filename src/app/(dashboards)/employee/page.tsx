@@ -16,7 +16,7 @@ export type UserInfo = {
   name: string,
   email: string,
   role: 'admin' | 'hr' | 'employee',
-  managerName:string
+  managerName?:string
   hourlyRate?:number
   overtimeRate?:number
   stats?: StatsType

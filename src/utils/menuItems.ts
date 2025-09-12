@@ -42,7 +42,7 @@ export const hrMenuItems = [
   },
   {
     title: "Time Sheet",
-    url: "#",
+    url: "/hr/timesheet",
     icon: TimerIcon,
   },
   {
