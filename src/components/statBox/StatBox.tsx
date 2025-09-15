@@ -1,9 +1,11 @@
+import { CalendarCheck2 } from "lucide-react";
 
-const StatBox = ({ label, value }: { label: string; value: string | number }) => {
+const StatBox = ({ label, value, icon, className }: { label: string; value: string | number, icon:React.ReactNode, className:string }) => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white rounded-xl shadow-md p-6 w-44">
+    <div className="w-44 flex flex-col items-center justify-center gap-2 bg-yellow-300/20 rounded-xl shadow-md p-6 ">
+      <span className="text-sm text-gray-500">{label}</span>
       {typeof value === "string" ?
         <span className="text-2xl font-bold text-gray-800">
           {value.charAt(0).toUpperCase() + value.slice(1)}
@@ -11,7 +13,7 @@ const StatBox = ({ label, value }: { label: string; value: string | number }) =>
         :
         <span className="text-2xl font-bold text-gray-800">{value}</span>
       }
-      <span className="text-sm text-gray-500">{label}</span>
+      <span className={`p-2 rounded-lg ${className} `}> {icon} </span>
     </div>
   )
 }

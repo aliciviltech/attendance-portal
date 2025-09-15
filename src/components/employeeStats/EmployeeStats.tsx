@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import StatBox from "../statBox/StatBox";
 import { UserInfo } from "@/app/(dashboards)/employee/page";
+import { CalendarCheck2, CalendarX, ClipboardList, Timer } from "lucide-react";
 
 
 export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null }) {
@@ -12,9 +13,9 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
     userInfo?.stats?.daily[0]?.date || ""
   );
 
-  useEffect(()=>{
+  useEffect(() => {
     setSelectedDate(userInfo?.stats?.daily[0]?.date || '')
-  },[userInfo])
+  }, [userInfo])
 
   // month/year state for monthly view
   const currentYear = new Date().getFullYear();
@@ -58,25 +59,34 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
 
   return (
     <div className="flex flex-col items-center gap-6">
-      {/* Mode Switch */}
-      <div className="flex gap-4">
-        <button
-          onClick={() => setMode("daily")}
-          className={`px-4 py-2 rounded-lg cursor-pointer ${
-            mode === "daily" ? "bg-primaryColor text-white" : "bg-gray-200"
-          }`}
-        >
-          Daily
-        </button>
-        <button
-          onClick={() => setMode("monthly")}
-          className={`px-4 py-2 rounded-lg cursor-pointer ${
-            mode === "monthly" ? "bg-primaryColor text-white" : "bg-gray-200"
-          }`}
-        >
-          Monthly
-        </button>
-      </div>
+
+      {/* header */}
+      <header className="w-full flex justify-between items-center px-4">
+
+        <p>Insights</p>
+
+        {/* Mode Switch */}
+        <div className="flex gap-4">
+          <button
+            onClick={() => setMode("daily")}
+            className={`px-4 py-2 rounded-lg cursor-pointer ${mode === "daily" ? "bg-primaryColor text-white" : "bg-gray-200"
+              }`}
+          >
+            Daily
+          </button>
+          <button
+            onClick={() => setMode("monthly")}
+            className={`px-4 py-2 rounded-lg cursor-pointer ${mode === "monthly" ? "bg-primaryColor text-white" : "bg-gray-200"
+              }`}
+          >
+            Monthly
+          </button>
+        </div>
+
+
+      </header>
+
+
 
       {/* Daily Mode */}
       {mode === "daily" && (
@@ -85,7 +95,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
           <select
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
-            className="px-4 py-2 border rounded-lg shadow-sm"
+            className="px-4 py-2 rounded-lg shadow-sm"
           >
             {userInfo?.stats?.daily.map((d) => (
               <option key={d.date} value={d.date}>
@@ -97,9 +107,9 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
           {/* Daily Stats */}
           {dailyStat ? (
             <div className="flex gap-6 flex-wrap justify-center">
-              <StatBox label="Status" value={dailyStat.status} />
-              <StatBox label="Hours Worked" value={dailyStat.hoursWorked} />
-              <StatBox label="Tasks Completed" value={dailyStat.tasksCompleted} />
+              <StatBox className={`${dailyStat.status === 'present'? 'bg-green-300' : 'bg-red-300'}`} label="Status" value={dailyStat.status}  icon={ dailyStat.status === 'present'? <CalendarCheck2 size={16}/> : <CalendarX size={16}/>} />
+              <StatBox className="bg-primaryColor/40" label="Hours Worked" value={dailyStat.hoursWorked} icon={<Timer size={16}/>} />
+              <StatBox className="bg-orange-400/40" label="Tasks Completed" value={dailyStat.tasksCompleted} icon={<ClipboardList size={16}/>} />
             </div>
           ) : (
             <p>No data available for this date.</p>
@@ -115,7 +125,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
             <select
               value={selectedMonth}
               onChange={(e) => setSelectedMonth(Number(e.target.value))}
-              className="px-4 py-2 border rounded-lg shadow-sm"
+              className="px-4 py-2 rounded-lg shadow-sm"
             >
               {months.map((m, idx) => (
                 <option key={m} value={idx + 1}>
@@ -127,7 +137,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
             <select
               value={selectedYear}
               onChange={(e) => setSelectedYear(Number(e.target.value))}
-              className="px-4 py-2 border rounded-lg shadow-sm"
+              className="px-4 py-2 rounded-lg shadow-sm"
             >
               {years.map((y) => (
                 <option key={y} value={y}>
@@ -139,10 +149,10 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
 
           {/* Monthly Stats */}
           <div className="flex gap-6 flex-wrap justify-center">
-            <StatBox label="Days Present" value={monthlyStats?.daysPresent || 0} />
-            <StatBox label="Days Absent" value={monthlyStats?.daysAbsent || 0} />
-            <StatBox label="Hours Worked" value={monthlyStats?.hoursWorked || 0 } />
-            <StatBox label="Tasks Completed" value={monthlyStats?.tasksCompleted || 0} />
+            <StatBox className='bg-green-300' label="Days Present" value={monthlyStats?.daysPresent || 0} icon={<CalendarCheck2 size={16}/>} />
+            <StatBox className='bg-red-300' label="Days Absent" value={monthlyStats?.daysAbsent || 0} icon={<CalendarX size={16}/>} />
+            <StatBox className="bg-primaryColor/40" label="Hours Worked" value={monthlyStats?.hoursWorked || 0} icon={<Timer size={16}/>} />
+            <StatBox className="bg-orange-400/40" label="Tasks Completed" value={monthlyStats?.tasksCompleted || 0} icon={<ClipboardList size={16}/>} />
           </div>
         </>
       )}

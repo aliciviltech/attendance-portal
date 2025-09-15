@@ -83,7 +83,7 @@ export default function CheckButtons({ userInfo }: CheckButtonsProps) {
           disabled={!isCheckinActive}
           className={`px-6 py-2 rounded-xl shadow-md font-medium text-white transition duration-200 ${
             isCheckinActive
-              ? "bg-blue-500 hover:bg-blue-600 active:scale-95"
+              ? "bg-green-500 hover:bg-green-600 active:scale-95"
               : "bg-gray-400 cursor-not-allowed"
           }`}
         >

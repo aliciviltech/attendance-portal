@@ -1,17 +1,29 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 @custom-variant dark (&:is(.dark *));
 
+
+@font-face {
+  font-family: poppins-regular;
+  src: url('/fonts/poppins/Poppins-Regular.ttf') ;
+}
+
+*{
+  font-family: poppins-regular;
+}
+
 :root {
-  --primaryColor:#1C6EA4 ;
+  --primaryColor:#007ef5 ;
   --secondaryColor:#154D71;
   --tertiaryColor:#1C6EA4;
   --primaryBg:#f3f4f6;
   --secondaryBg:#dddddd;
   --lightShadow: 0px 4px 25px 0px #0000000f;
   --darkShadow: 0px 4px 25px 0px #0000000f;
+  --lightBlue: #C6E6FB;
+  --textColorB1: #2C5B8C;
+  --textColorO1: #ee842e;
   
 
   /* shadcn variables */
@@ -56,7 +68,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-lightBorder: rgb(209, 213, 219);
+  --color-lightBlue: var(--lightBlue);
   --text-h3: 20px;
+  --text-h4: 16px;
 
 
   /* shadcn variables */
@@ -135,11 +149,20 @@
 }
 /* ================ shadcn ================= */
 @layer base {
-  * {
+  .app-sidebar {
     @apply border-border outline-ring/50;
   }
-  body {
+  .app-sidebar {
     @apply bg-background text-foreground;
+  }
+  .text-p1 {
+    @apply text-[14px] text-gray-500 ; 
+  }
+  .text-h4 {
+    @apply text-[16px] text-[var(--textColorB1)] font-bold; 
+  }
+  .text-p4 {
+    @apply text-[14px] text-[var(--textColorO1)] ; 
   }
 }
 

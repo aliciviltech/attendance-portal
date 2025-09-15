@@ -40,7 +40,7 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
                 <select
                     value={month}
                     onChange={(e) => setMonth(Number(e.target.value))}
-                    className="border rounded-lg px-3 py-2"
+                    className="shadow-sm rounded-lg px-3 py-2"
                 >
                     {Array.from({ length: 12 }, (_, i) => (
                         <option key={i + 1} value={i + 1}>
@@ -51,7 +51,7 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
                 <select
                     value={year}
                     onChange={(e) => setYear(Number(e.target.value))}
-                    className="border rounded-lg px-3 py-2"
+                    className="shadow-sm rounded-lg px-3 py-2"
                 >
                     {Array.from({ length: new Date().getFullYear() - 2023 }, (_, i) => (
                         <option key={i} value={2024 + i}>
@@ -64,23 +64,23 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
             {/* Employee Info Table */}
             <table className="w-full bg-white border border-gray-300 rounded-lg overflow-hidden">
                 <tbody>
-                    <tr className="border-b">
+                    <tr className="border-b border-lightBorder">
                         <td className="font-semibold px-4 py-2 capitalize">Employee Name</td>
                         <td className="px-4 py-2">{userInfo?.name}</td>
                     </tr>
-                    <tr className="border-b">
+                    <tr className="border-b border-lightBorder">
                         <td className="font-semibold px-4 py-2 capitalize">Manager Name</td>
                         <td className="px-4 py-2">{userInfo?.managerName}</td>
                     </tr>
-                    <tr className="border-b">
+                    <tr className="border-b border-lightBorder">
                         <td className="font-semibold px-4 py-2 capitalize">Hourly Rate</td>
                         <td className="px-4 py-2">{userInfo?.hourlyRate}</td>
                     </tr>
-                    <tr className="border-b">
+                    <tr className="border-b border-lightBorder">
                         <td className="font-semibold px-4 py-2 capitalize">Overtime Rate</td>
                         <td className="px-4 py-2">{userInfo?.overtimeRate}</td>
                     </tr>
-                    <tr className="border-b">
+                    <tr className="border-b border-lightBorder">
                         <td className="font-semibold px-4 py-2 capitalize">Month</td>
                         <td className="px-4 py-2">{year}-{month.toString().padStart(2, "0")}</td>
                     </tr>

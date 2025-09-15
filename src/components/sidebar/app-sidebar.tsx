@@ -1,4 +1,3 @@
-
 import {
   Sidebar,
   SidebarContent,
@@ -11,6 +10,9 @@ import {
 } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import { adminMenuItems, employeeMenuItems, hrMenuItems } from "@/utils/menuItems"
+import { LogOut } from "lucide-react"
+import { logout } from "@/utils/client"
+import { useRouter } from "next/navigation"
 
 
 
@@ -23,23 +25,28 @@ export function AppSidebar() {
     role = "Admin"
     items = adminMenuItems
   }
-  if (pathname.includes("/hr")){
+  if (pathname.includes("/hr")) {
     role = "HR"
-    items=hrMenuItems
+    items = hrMenuItems
   }
   if (pathname.includes("/employee")) {
     role = "Employee"
-    items=employeeMenuItems
+    items = employeeMenuItems
+  }
+
+// logout
+const router = useRouter()
+  const handleLogout = ()=>{
+    logout();
+    router.push('/login')
   }
 
 
-
-
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="app-sidebar">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Attendance Portal - {role}-Account</SidebarGroupLabel>
+          <SidebarGroupLabel>{role} Account</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items?.map((item) => (
@@ -52,6 +59,7 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              <div className="flex gap-2 items-center cursor-pointer ml-2 hover:text-primaryColor " onClick={handleLogout}><LogOut size={16}/> Logout </div>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
