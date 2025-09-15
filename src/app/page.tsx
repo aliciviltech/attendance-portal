@@ -12,7 +12,7 @@ const Home = () => {
 
       {/* Roll based login */}
       <div className="buttons flex gap-2 flex-col items-center">
-        <Link href={'/login'}><FitButton text='Login' className='w-[200px]' /></Link>
+        <Link href={'/login'}><FitButton text='Login' className='w-[200px] bg-primaryColor' /></Link>
       </div>
     </div>
   )
