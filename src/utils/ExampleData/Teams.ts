@@ -1,4 +1,4 @@
-export let Teams = [
+export const Teams = [
     {
         teamId:'1',
         teamTitle:'Team1',

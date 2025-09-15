@@ -1,6 +1,6 @@
 import { AccountsType } from "@/types/accountsTypes";
 
-export let AccountsData: AccountsType[] = [
+export const AccountsData: AccountsType[] = [
     {
         id: `1`,
         name: 'admin',
