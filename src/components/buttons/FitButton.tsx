@@ -11,13 +11,13 @@ const FitButton = ({
     text,
     onClick,
     type = "button",
-    className = "",
+    className = "bg-primaryColor",
 }: FitButtonProps) => {
     return (
         <button
             type={type}
             onClick={onClick}
-            className={`px-6 py-2 bg-primaryColor text-white font-medium rounded-xl shadow-md hover:bg-secondaryColor active:scale-95 transition duration-200 cursor-pointer ${className}`}
+            className={`px-6 py-2 text-white font-medium rounded-xl shadow-md hover:bg-secondaryColor active:scale-95 transition duration-200 cursor-pointer ${className}`}
         >
             {text}
         </button>

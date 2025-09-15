@@ -16,10 +16,12 @@
 
 :root {
   --primaryColor:#007ef5 ;
-  --secondaryColor:#154D71;
+  --secondaryColor:#0165c4;
   --tertiaryColor:#1C6EA4;
+  --dangerColor:#ff0000;
   --primaryBg:#f3f4f6;
   --secondaryBg:#dddddd;
+  --greenButtonBg:#57d57d;
   --lightDangerBg:#ff03035b;
   --lightSuccessBg:#50f04b4f;
   --lightShadow: 0px 4px 25px 0px #0000000f;
@@ -67,7 +69,9 @@
 @theme inline {
   --color-primaryColor:var(--primaryColor) ;
   --color-secondaryColor:var(--secondaryColor) ;
+  --color-dangerColor:var(--dangerColor) ;
   --color-primaryBg: var(--primaryBg);
+  --color-greenButtonBg: var(--greenButtonBg);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-lightBorder: rgb(209, 213, 219);
@@ -159,11 +163,19 @@
   .app-sidebar {
     @apply bg-background text-foreground;
   }
+  .employee-edit-form-label{
+    @apply text-sm text-gray-500 mt-3;
+  }
+
+  /* ===================== text ==================== */
   .text-p1 {
     @apply text-[14px] text-gray-500 ; 
   }
   .text-h4 {
     @apply text-[16px] text-[var(--textColorB1)] font-bold; 
+  }
+  .dangerText {
+    @apply text-[16px] text-dangerColor; 
   }
   .text-p4 {
     @apply text-[14px] text-[var(--textColorO1)] ; 

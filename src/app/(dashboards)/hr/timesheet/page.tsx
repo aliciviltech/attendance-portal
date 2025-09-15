@@ -25,7 +25,7 @@ const TimesheetPage = () => {
                     <select
                         value={employee.id}
                         onChange={(e) => { handleEmployee(e.target.value) }}
-                        className="border rounded-lg px-3 py-2"
+                        className="shadow-sm rounded-lg px-3 py-2"
                     >
                         {allEmployees.map((emp) => (
                             <option key={emp.id} value={emp.id}>
@@ -35,7 +35,7 @@ const TimesheetPage = () => {
                     </select>
                 </div>
                 <div>
-                      <h1 className='w-fit text-h3 bg-primaryColor text-white px-4 py-2 my-4'>  {`${employee.name}'s`} Timesheet:</h1>
+                      <h1 className='text-h4 shadow-sm py-1 px-2 mx-4 my-4'>  {`${employee.name}'s`} Timesheet:</h1>
                 <Timesheet userInfo={employee} />
                 </div>
             </div>

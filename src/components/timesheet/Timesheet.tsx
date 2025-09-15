@@ -65,23 +65,23 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
             <table className="w-full max-w-[600px] bg-white border-separate border-spacing-0 border border-gray-300 rounded-lg overflow-hidden">
                 <tbody>
                     <tr>
-                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg sm:w-[300px]">Employee Name</td>
+                        <td className="text-gray-600 px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg sm:w-[300px]">Employee Name</td>
                         <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.name}</td>
                     </tr>
                     <tr>
-                        <td className="font-semibold px-4 py-2 capitalize  border-b border-lightBorder bg-primaryBg">Manager Name</td>
+                        <td className="text-gray-600 px-4 py-2 capitalize  border-b border-lightBorder bg-primaryBg">Manager Name</td>
                         <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.managerName}</td>
                     </tr>
                     <tr>
-                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Hourly Rate</td>
+                        <td className="text-gray-600 px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Hourly Rate</td>
                         <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.hourlyRate}</td>
                     </tr>
                     <tr>
-                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Overtime Rate</td>
+                        <td className="text-gray-600 px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Overtime Rate</td>
                         <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.overtimeRate}</td>
                     </tr>
                     <tr >
-                        <td className="font-semibold px-4 py-2 capitalize  bg-primaryBg">Month</td>
+                        <td className="text-gray-600 px-4 py-2 capitalize  bg-primaryBg">Month</td>
                         <td className="px-4 py-2">{year}-{month.toString().padStart(2, "0")}</td>
                     </tr>
                 </tbody>
@@ -90,7 +90,7 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
             {/* Timesheet Table */}
             <div className="overflow-x-auto">
                 <table className="w-full bg-white border-separate border-spacing-0 border border-gray-300 rounded-lg overflow-hidden">
-                    <thead className="bg-primaryBg">
+                    <thead className="bg-primaryBg text-gray-500">
                         <tr>
                             <th className="px-4 py-4 text-left">Date</th>
                             <th className="px-4 py-4 text-left">Day</th>
@@ -105,7 +105,7 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
                     <tbody>
                         {userMonthlyInfo?.map((d) => (
                             <tr key={d.date} className="">
-                                <td className="px-4 py-4 border-b border-gray-300">{d.date}</td>
+                                <td className="px-4 py-4 border-b border-gray-300 whitespace-nowrap">{d.date}</td>
                                 <td className="px-4 py-4 border-b border-gray-300 capitalize">{d.day}</td>
                                 <td className={`px-4 py-4 border-b border-gray-300 capitalize`}> <span className={`px-2 rounded-md ${d.status === 'present' ? 'bg-[var(--lightSuccessBg)]' : 'bg-[var(--lightDangerBg)]'}`}> {d.status}</span></td>
                                 <td className="px-4 py-4 border-b border-gray-300">{d.startTime}</td>

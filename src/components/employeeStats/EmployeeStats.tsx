@@ -106,7 +106,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
 
           {/* Daily Stats */}
           {dailyStat ? (
-            <div className="flex gap-6 flex-wrap justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 flex-wrap justify-center px-2">
               <StatBox className={`${dailyStat.status === 'present'? 'bg-green-300' : 'bg-red-300'}`} label="Status" value={dailyStat.status}  icon={ dailyStat.status === 'present'? <CalendarCheck2 size={16}/> : <CalendarX size={16}/>} />
               <StatBox className="bg-primaryColor/40" label="Hours Worked" value={dailyStat.hoursWorked} icon={<Timer size={16}/>} />
               <StatBox className="bg-orange-400/40" label="Tasks Completed" value={dailyStat.tasksCompleted} icon={<ClipboardList size={16}/>} />
@@ -148,7 +148,7 @@ export default function EmployeeStats({ userInfo }: { userInfo: UserInfo | null 
           </div>
 
           {/* Monthly Stats */}
-          <div className="flex gap-6 flex-wrap justify-center">
+          <div className="flex gap-6 flex-wrap justify-center px-2">
             <StatBox className='bg-green-300' label="Days Present" value={monthlyStats?.daysPresent || 0} icon={<CalendarCheck2 size={16}/>} />
             <StatBox className='bg-red-300' label="Days Absent" value={monthlyStats?.daysAbsent || 0} icon={<CalendarX size={16}/>} />
             <StatBox className="bg-primaryColor/40" label="Hours Worked" value={monthlyStats?.hoursWorked || 0} icon={<Timer size={16}/>} />

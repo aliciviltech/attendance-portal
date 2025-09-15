@@ -58,7 +58,7 @@ export default function CheckinSection() {
                         // onClick={handleCheckin}
                         // disabled={!isCheckinActive}
                         className={`px-6 py-2 w-full rounded-xl shadow-md font-medium text-white transition duration-200 ${isCheckinActive
-                            ? "bg-green-400 hover:bg-green-600 active:scale-95"
+                            ? "bg-greenButtonBg hover:bg-green-600 active:scale-95"
                             : "bg-gray-400 cursor-not-allowed"
                             }`}
                     >
