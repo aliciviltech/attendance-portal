@@ -99,11 +99,11 @@ export default function EmployeeStats() {
             </option>
           ))}
         </select>
-        <div className="flex gap-6">
+        {/* <div className="flex gap-6">
           <StatBox label="Status" value={dailyStat?.status ?? "-"} />
           <StatBox label="Hours Worked" value={dailyStat?.hoursWorked ?? 0} />
           <StatBox label="Tasks Completed" value={dailyStat?.tasksCompleted ?? 0} />
-        </div>
+        </div> */}
       </div>
 
       {/* Monthly Stats */}
@@ -120,12 +120,12 @@ export default function EmployeeStats() {
             </option>
           ))}
         </select>
-        <div className="flex gap-6">
+        {/* <div className="flex gap-6">
           <StatBox label="Days Present" value={daysPresent} />
           <StatBox label="Days Absent" value={daysAbsent} />
           <StatBox label="Hours Worked" value={totalHours} />
           <StatBox label="Tasks Completed" value={totalTasks} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
