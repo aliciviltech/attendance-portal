@@ -13,9 +13,9 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
     const [month, setMonth] = useState<number>(9); // September
 
     useEffect(() => {
-        const filterInfo = userInfo?.stats?.daily.filter((info) => (new Date(info.date).getMonth()+1 === month && new Date(info.date).getFullYear()===year)) || []
+        const filterInfo = userInfo?.stats?.daily.filter((info) => (new Date(info.date).getMonth() + 1 === month && new Date(info.date).getFullYear() === year)) || []
         setUserMonthlyInfo(filterInfo)
-    },[month, year, userInfo])
+    }, [month, year, userInfo])
 
 
 
@@ -34,7 +34,7 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
 
 
     return (
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-8 bg-white">
             {/* Month Selector */}
             <div className="flex gap-4 items-center">
                 <select
@@ -62,26 +62,26 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
             </div>
 
             {/* Employee Info Table */}
-            <table className="w-full bg-white border border-gray-300 rounded-lg overflow-hidden">
+            <table className="w-full max-w-[600px] bg-white border-separate border-spacing-0 border border-gray-300 rounded-lg overflow-hidden">
                 <tbody>
-                    <tr className="border-b border-lightBorder">
-                        <td className="font-semibold px-4 py-2 capitalize">Employee Name</td>
-                        <td className="px-4 py-2">{userInfo?.name}</td>
+                    <tr>
+                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg sm:w-[300px]">Employee Name</td>
+                        <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.name}</td>
                     </tr>
-                    <tr className="border-b border-lightBorder">
-                        <td className="font-semibold px-4 py-2 capitalize">Manager Name</td>
-                        <td className="px-4 py-2">{userInfo?.managerName}</td>
+                    <tr>
+                        <td className="font-semibold px-4 py-2 capitalize  border-b border-lightBorder bg-primaryBg">Manager Name</td>
+                        <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.managerName}</td>
                     </tr>
-                    <tr className="border-b border-lightBorder">
-                        <td className="font-semibold px-4 py-2 capitalize">Hourly Rate</td>
-                        <td className="px-4 py-2">{userInfo?.hourlyRate}</td>
+                    <tr>
+                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Hourly Rate</td>
+                        <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.hourlyRate}</td>
                     </tr>
-                    <tr className="border-b border-lightBorder">
-                        <td className="font-semibold px-4 py-2 capitalize">Overtime Rate</td>
-                        <td className="px-4 py-2">{userInfo?.overtimeRate}</td>
+                    <tr>
+                        <td className="font-semibold px-4 py-2 capitalize border-b border-lightBorder bg-primaryBg">Overtime Rate</td>
+                        <td className="px-4 py-2 border-b border-lightBorder">{userInfo?.overtimeRate}</td>
                     </tr>
-                    <tr className="border-b border-lightBorder">
-                        <td className="font-semibold px-4 py-2 capitalize">Month</td>
+                    <tr >
+                        <td className="font-semibold px-4 py-2 capitalize  bg-primaryBg">Month</td>
                         <td className="px-4 py-2">{year}-{month.toString().padStart(2, "0")}</td>
                     </tr>
                 </tbody>
@@ -89,34 +89,34 @@ export default function Timesheet({ userInfo }: { userInfo: UserInfo | null }) {
 
             {/* Timesheet Table */}
             <div className="overflow-x-auto">
-                <table className="w-full bg-white border border-gray-300 rounded-lg">
-                    <thead className="bg-gray-300">
+                <table className="w-full bg-white border-separate border-spacing-0 border border-gray-300 rounded-lg overflow-hidden">
+                    <thead className="bg-primaryBg">
                         <tr>
-                            <th className="px-4 py-2 text-left">Date</th>
-                            <th className="px-4 py-2 text-left">Day</th>
-                            <th className="px-4 py-2 text-left">Status</th>
-                            <th className="px-4 py-2 text-left">Start Time</th>
-                            <th className="px-4 py-2 text-left">End Time</th>
-                            <th className="px-4 py-2 text-left">Regular Hours</th>
-                            <th className="px-4 py-2 text-left">Overtime Hours</th>
-                            <th className="px-4 py-2 text-left">Total Hours</th>
+                            <th className="px-4 py-4 text-left">Date</th>
+                            <th className="px-4 py-4 text-left">Day</th>
+                            <th className="px-4 py-4 text-left">Status</th>
+                            <th className="px-4 py-4 text-left">Start Time</th>
+                            <th className="px-4 py-4 text-left">End Time</th>
+                            <th className="px-4 py-4 text-left">Regular Hours</th>
+                            <th className="px-4 py-4 text-left">Overtime Hours</th>
+                            <th className="px-4 py-4 text-left">Total Hours</th>
                         </tr>
                     </thead>
                     <tbody>
                         {userMonthlyInfo?.map((d) => (
-                            <tr key={d.date} className="border-b">
-                                <td className="px-4 py-2">{d.date}</td>
-                                <td className="px-4 py-2">{d.day}</td>
-                                <td className="px-4 py-2 capitalize">{d.status}</td>
-                                <td className="px-4 py-2">{d.startTime}</td>
-                                <td className="px-4 py-2">{d.endTime}</td>
-                                <td className="px-4 py-2">{d.regularHours}</td>
-                                <td className="px-4 py-2">{d.overtimeHours}</td>
-                                <td className="px-4 py-2">{d.hoursWorked}</td>
+                            <tr key={d.date} className="">
+                                <td className="px-4 py-4 border-b border-gray-300">{d.date}</td>
+                                <td className="px-4 py-4 border-b border-gray-300 capitalize">{d.day}</td>
+                                <td className={`px-4 py-4 border-b border-gray-300 capitalize`}> <span className={`px-2 rounded-md ${d.status === 'present' ? 'bg-[var(--lightSuccessBg)]' : 'bg-[var(--lightDangerBg)]'}`}> {d.status}</span></td>
+                                <td className="px-4 py-4 border-b border-gray-300">{d.startTime}</td>
+                                <td className="px-4 py-4 border-b border-gray-300">{d.endTime}</td>
+                                <td className="px-4 py-4 border-b border-gray-300">{d.regularHours}</td>
+                                <td className="px-4 py-4 border-b border-gray-300">{d.overtimeHours}</td>
+                                <td className="px-4 py-4 border-b border-gray-300">{d.hoursWorked}</td>
                             </tr>
                         ))}
                     </tbody>
-                    <tfoot className="bg-gray-300 font-semibold">
+                    <tfoot className="bg-primaryBg font-semibold">
                         <tr>
                             <td colSpan={5} className="px-4 py-2 text-right">
                                 Totals:

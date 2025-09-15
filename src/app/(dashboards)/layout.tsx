@@ -8,9 +8,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
 
-        <SidebarProvider>
+        <SidebarProvider defaultOpen >
             <AppSidebar />
-            <main className="w-full min-h-screen bg-primaryBg">
+            <main className="w-full max-w-[1920px] mx-auto min-h-screen bg-primaryBg">
                 <SidebarTrigger />
                 {children}
             </main>

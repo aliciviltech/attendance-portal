@@ -5,12 +5,13 @@
 
 
 @font-face {
-  font-family: poppins-regular;
-  src: url('/fonts/poppins/Poppins-Regular.ttf') ;
+  font-family: poppins-light;
+  src: url('/fonts/poppins/Poppins-Light.ttf') ;
 }
 
+
 *{
-  font-family: poppins-regular;
+  font-family: poppins-light;
 }
 
 :root {
@@ -19,6 +20,8 @@
   --tertiaryColor:#1C6EA4;
   --primaryBg:#f3f4f6;
   --secondaryBg:#dddddd;
+  --lightDangerBg:#ff03035b;
+  --lightSuccessBg:#50f04b4f;
   --lightShadow: 0px 4px 25px 0px #0000000f;
   --darkShadow: 0px 4px 25px 0px #0000000f;
   --lightBlue: #C6E6FB;
@@ -149,6 +152,7 @@
 }
 /* ================ shadcn ================= */
 @layer base {
+  
   .app-sidebar {
     @apply border-border outline-ring/50;
   }

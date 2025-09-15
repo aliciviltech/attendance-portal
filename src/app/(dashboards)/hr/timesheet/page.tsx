@@ -18,7 +18,6 @@ const TimesheetPage = () => {
 
 
     return (
-        <div className=''>
 
             <div>
                 <div className='flex gap-4 items-center justify-center'>
@@ -36,11 +35,10 @@ const TimesheetPage = () => {
                     </select>
                 </div>
                 <div>
-                      <h1 className='text-h3 bg-primaryColor text-white px-4 py-2 my-4'>  {`${employee.name}'s`} Timesheet:</h1>
+                      <h1 className='w-fit text-h3 bg-primaryColor text-white px-4 py-2 my-4'>  {`${employee.name}'s`} Timesheet:</h1>
                 <Timesheet userInfo={employee} />
                 </div>
             </div>
-        </div>
     )
 }
 

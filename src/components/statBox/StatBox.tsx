@@ -4,7 +4,7 @@ const StatBox = ({ label, value, icon, className }: { label: string; value: stri
 
 
   return (
-    <div className="w-44 flex flex-col items-center justify-center gap-2 bg-yellow-300/20 rounded-xl shadow-md p-6 ">
+    <div className="w-44 flex flex-col items-center justify-center gap-2 bg-white rounded-xl shadow-md p-6 ">
       <span className="text-sm text-gray-500">{label}</span>
       {typeof value === "string" ?
         <span className="text-2xl font-bold text-gray-800">

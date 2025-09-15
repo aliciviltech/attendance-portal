@@ -47,7 +47,7 @@ export const hrMenuItems = [
   },
   {
     title: "All Employees",
-    url: "#",
+    url: "/hr/all-employees",
     icon: Users,
   },
   {

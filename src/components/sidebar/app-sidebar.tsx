@@ -10,10 +10,6 @@ import {
 } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import { adminMenuItems, employeeMenuItems, hrMenuItems } from "@/utils/menuItems"
-import { LogOut } from "lucide-react"
-import { logout } from "@/utils/client"
-import { useRouter } from "next/navigation"
-
 
 
 export function AppSidebar() {
@@ -34,12 +30,7 @@ export function AppSidebar() {
     items = employeeMenuItems
   }
 
-// logout
-const router = useRouter()
-  const handleLogout = ()=>{
-    logout();
-    router.push('/login')
-  }
+
 
 
   return (
@@ -59,7 +50,6 @@ const router = useRouter()
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
-              <div className="flex gap-2 items-center cursor-pointer ml-2 hover:text-primaryColor " onClick={handleLogout}><LogOut size={16}/> Logout </div>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

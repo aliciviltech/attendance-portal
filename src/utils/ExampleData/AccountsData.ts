@@ -1,19 +1,22 @@
 import { AccountsType } from "@/types/accountsTypes";
 
-export const AccountsData: AccountsType[] = [
+export let AccountsData: AccountsType[] = [
     {
         id: `1`,
         name: 'admin',
         email: 'admin@gmail.com',
         password: 'Admin123@',
-        role: 'admin'
+        role: 'admin',
+        designation:'CEO'
     },
     {
         id: '2',
         name: 'hr',
         email: 'hr@gmail.com',
         password: 'Hr12345@',
-        role: 'hr'
+        role: 'hr',
+        designation:'HR Manager',
+        department:'HR'
     },
     {
         id: '3',
@@ -21,6 +24,9 @@ export const AccountsData: AccountsType[] = [
         email: 'ali@gmail.com',
         password: 'Ali1234@',
         role: 'employee',
+        designation:'Full-Stack Developer',
+        department:'Web Development',
+        team:'Team1',
         managerName:'Jawed Roomi',
         hourlyRate: 400,
         overtimeRate: 500,
@@ -39,8 +45,11 @@ export const AccountsData: AccountsType[] = [
         id: '4',
         name: 'Shahid',
         email: 'shahid@gmail.com',
-        password: 'shahid1234@',
+        password: 'Shahid1234@',
         role: 'employee',
+        designation:'AI Developer',
+        department:'AI Development',
+        team:'Team2',
         managerName:'Jawed Roomi',
         hourlyRate: 300,
         overtimeRate: 400,

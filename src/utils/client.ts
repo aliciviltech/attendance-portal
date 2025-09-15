@@ -11,14 +11,18 @@ type User = {
 } | undefined
 
 
-
+// =================== login logout =====================
 export const login = (userCredentials: LoginInputs) => {
     const { email } = userCredentials;
     const user: User = AccountsData.find((u) => email === u.email)
     if(!user){
         throw new Error("User not found");
     }
-    console.log('running')
+    if(userCredentials.password !== user.password){
+        console.log(userCredentials.password)
+        throw new Error("Invalid credentials");
+    }
+    
     const {password, ...otherInfo} = user
     return(otherInfo)
 }
@@ -26,3 +30,5 @@ export const login = (userCredentials: LoginInputs) => {
 export const logout = () => {
     localStorage.removeItem('user')
 }
+
+
